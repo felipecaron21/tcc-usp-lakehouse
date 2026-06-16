@@ -29,7 +29,5 @@ models:
   lakehouse:
     silver:
       +materialized: external
-      +location: "../../../data/silver/{{ this.identifier }}.parquet"
     gold:
       +materialized: external
-      +location: "../../../data/gold/{{ this.identifier }}.parquet"
