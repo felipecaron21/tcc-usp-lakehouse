@@ -193,3 +193,4 @@ def gerar_base(n_orders):
 
 if __name__ == '__main__':
     gerar_base(n_orders=10000)
+    
