@@ -1,3 +1,8 @@
+{{ config(
+    materialized='external',
+    location='../../../data/silver/silver_customers.parquet'
+) }}
+
 WITH bronze AS (
     SELECT *
     FROM read_parquet('../../../data/bronze/customers.parquet')
