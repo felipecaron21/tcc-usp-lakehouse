@@ -10,7 +10,7 @@ WITH bronze AS (
 
 orders_validos AS (
     SELECT order_id
-    FROM read_parquet('../../data/bronze/orders.parquet')
+    FROM {{ ref('silver_orders') }}
 ),
 
 tratado AS (
