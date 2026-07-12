@@ -20,7 +20,7 @@ SELECT
     ROUND(AVG(oi.price), 2) AS ticket_medio,
     COUNT(*) AS total_itens
 FROM order_items oi
-LEFT JOIN products p
+INNER JOIN products p
     ON oi.product_id = p.product_id
 GROUP BY p.product_category
 ORDER BY ticket_medio DESC
