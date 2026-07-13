@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: gold_pedidos_por_status
+    description: "Total de pedidos agrupados por status. Apenas status válidos e tratados são considerados."
+    columns:
+      - name: status
+        description: "Status do pedido tratado. Valores inválidos consolidados como 'Não identificado'."
+        data_tests:
+          - not_null
+          - unique
+      - name: total_pedidos
+        description: "Total de pedidos para cada status."
+        data_tests:
+          - not_null
+
+  - name: gold_ticket_medio_categoria
+    description: "Ticket médio por categoria de produto, considerando apenas itens com preço válido e pedido confirmado."
+    columns:
+      - name: categoria
+        description: "Categoria do produto."
+        data_tests:
+          - not_null
+          - unique
+      - name: ticket_medio
+        description: "Média dos preços válidos dos itens por categoria."
+        data_tests:
+          - not_null
+      - name: total_itens
+        description: "Total de itens considerados no cálculo do ticket médio."
+        data_tests:
+          - not_null
+
+  - name: gold_top_sellers
+    description: "Top 5 vendedores por volume de vendas, considerando apenas sellers com UF válida."
+    columns:
+      - name: seller_name
+        description: "Nome do vendedor."
+        data_tests:
+          - not_null
+      - name: volume_vendas
+        description: "Soma dos preços válidos dos itens vendidos pelo seller."
+        data_tests:
+          - not_null
+      - name: total_itens
+        description: "Total de itens vendidos pelo seller."
+        data_tests:
+          - not_null
+
+  - name: gold_tempo_entrega_estado
+    description: "Tempo médio de entrega em dias por estado do cliente, considerando apenas pedidos entregues sem inconsistência."
+    columns:
+      - name: estado
+        description: "UF do cliente."
+        data_tests:
+          - not_null
+          - unique
+      - name: tempo_medio_dias
+        description: "Média de dias entre a compra e a entrega por estado."
+        data_tests:
+          - not_null
+      - name: total_pedidos
+        description: "Total de pedidos considerados no cálculo por estado."
+        data_tests:
+          - not_null
