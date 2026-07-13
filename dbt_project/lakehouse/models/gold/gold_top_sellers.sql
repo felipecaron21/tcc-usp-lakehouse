@@ -1,6 +1,6 @@
 {{ config(
     materialized='external',
-    location='../../data/gold/gold_top_sellers.parquet'
+    location= var('data_path') + '/gold/gold_top_sellers.parquet'
 ) }}
 
 WITH order_items AS (

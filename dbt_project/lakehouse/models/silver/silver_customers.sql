@@ -1,11 +1,11 @@
 {{ config(
     materialized='external',
-    location='../../data/silver/silver_customers.parquet'
+    location= var('data_path') + '/silver/silver_customers.parquet'
 ) }}
 
 WITH bronze AS (
     SELECT *
-    FROM read_parquet('../../data/bronze/customers.parquet')
+    FROM read_parquet('{{ var("data_path") }}/bronze/customers.parquet')
 ),
 
 deduplicado AS (

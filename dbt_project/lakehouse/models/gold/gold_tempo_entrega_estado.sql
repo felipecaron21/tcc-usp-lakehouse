@@ -1,6 +1,6 @@
 {{ config(
     materialized='external',
-    location='../../data/gold/gold_tempo_entrega_estado.parquet'
+    location= var('data_path') + '/gold/gold_tempo_entrega_estado.parquet'
 ) }}
 
 WITH orders AS (

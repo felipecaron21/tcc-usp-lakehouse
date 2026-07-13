@@ -1,6 +1,6 @@
 {{ config(
     materialized='external',
-    location='../../data/gold/gold_ticket_medio_categoria.parquet'
+    location= var('data_path') + '/gold/gold_ticket_medio_categoria.parquet'
 ) }}
 
 WITH order_items AS (

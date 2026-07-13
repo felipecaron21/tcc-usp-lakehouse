@@ -1,6 +1,6 @@
 {{ config(
     materialized='external',
-    location='../../data/gold/gold_pedidos_por_status.parquet'
+    location= var('data_path') + '/gold/gold_pedidos_por_status.parquet'
 ) }}
 
 WITH silver_orders AS (
