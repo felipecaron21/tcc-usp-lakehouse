@@ -9,7 +9,7 @@ with DAG(
     dag_id="dag_transformacao",
     description="Transformação: modelos dbt silver e gold",
     start_date=datetime(2025, 1, 1),
-    schedule=None,
+    schedule="0 0 * * *",
     catchup=False,
     tags=["tcc", "lakehouse", "transformacao"],
 ) as dag:
