@@ -1,3 +1,4 @@
 dags/__pycache__/
 metabase/metabase-data/
 metabase/plugins/sample-database.db.mv.db
+metabase/plugins/duckdb.metabase-driver.jar
