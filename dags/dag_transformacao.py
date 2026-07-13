@@ -19,7 +19,8 @@ with DAG(
         bash_command=(
             f"dbt run --select silver.* "
             f"--project-dir {DBT_PROJECT_DIR} "
-            f"--profiles-dir {DBT_PROFILES_DIR}"
+            f"--profiles-dir {DBT_PROFILES_DIR} "
+            f"--vars '{{\"data_path\": \"/opt/tcc/data\"}}'"
         ),
     )
 
@@ -28,7 +29,8 @@ with DAG(
         bash_command=(
             f"dbt run --select gold.* "
             f"--project-dir {DBT_PROJECT_DIR} "
-            f"--profiles-dir {DBT_PROFILES_DIR}"
+            f"--profiles-dir {DBT_PROFILES_DIR} "
+            f"--vars '{{\"data_path\": \"/opt/tcc/data\"}}'"
         ),
     )
 

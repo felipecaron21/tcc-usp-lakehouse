@@ -33,4 +33,4 @@ models:
       +materialized: external
 
 vars:
-  data_path: "/opt/tcc/data"
+  data_path: "/Users/felipe-caron/Documents/git-github/tcc-usp-lakehouse/data"

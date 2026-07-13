@@ -2,6 +2,6 @@ lakehouse:
   outputs:
     dev:
       type: duckdb
-      path: /opt/tcc/lakehouse.db
+      path: /opt/tcc/lakehouse_dbt.db
       threads: 1
   target: dev
