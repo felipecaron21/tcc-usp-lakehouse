@@ -1,0 +1,14 @@
+services:
+  metabase:
+    build: .
+    container_name: metabase-tcc
+    ports:
+      - "3000:3000"
+    volumes:
+      - /Users/felipe-caron/Documents/git-github/tcc-usp-lakehouse/metabase/metabase-data:/metabase-data
+      - /Users/felipe-caron/Documents/git-github/tcc-usp-lakehouse:/opt/tcc
+      - /Users/felipe-caron/Documents/git-github/tcc-usp-lakehouse/metabase/plugins:/plugins
+    environment:
+      MB_DB_FILE: /metabase-data/metabase.db
+      MB_PLUGINS_DIR: /plugins
+    restart: always
