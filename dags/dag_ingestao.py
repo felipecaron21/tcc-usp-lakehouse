@@ -15,5 +15,5 @@ with DAG(
 
     gerar_dados = BashOperator(
         task_id="gerar_dados_bronze",
-        bash_command=f"cd {GENERATOR_DIR} && python generator/generate_data.py",
+        bash_command=f"cd {GENERATOR_DIR} && python generator/generator_data.py",
     )
