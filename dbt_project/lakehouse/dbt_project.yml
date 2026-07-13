@@ -31,3 +31,6 @@ models:
       +materialized: external
     gold:
       +materialized: external
+
+vars:
+  data_path: "/opt/tcc/data"
