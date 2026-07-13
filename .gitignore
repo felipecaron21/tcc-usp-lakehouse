@@ -1,1 +1,3 @@
 dags/__pycache__/
+metabase/metabase-data/
+metabase/plugins/sample-database.db.mv.db
