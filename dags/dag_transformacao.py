@@ -34,4 +34,14 @@ with DAG(
         ),
     )
 
-    rodar_silver >> rodar_gold
+    rodar_testes = BashOperator(
+    task_id="rodar_testes_dbt",
+    bash_command=(
+        f"dbt test "
+        f"--project-dir {DBT_PROJECT_DIR} "
+        f"--profiles-dir {DBT_PROFILES_DIR} "
+        f"--vars '{{\"data_path\": \"/opt/tcc/data\"}}'"
+    ),
+)
+
+rodar_silver >> rodar_gold >> rodar_testes
