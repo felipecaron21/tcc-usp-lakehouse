@@ -1,0 +1,5 @@
+kpi,dimensao,cenario_a,cenario_b,unidade,observacao
+Velocidade,Tempo de execução (segundos),0.39,6.29,segundos,Cenário A exige execução manual a cada análise; Cenário B é automatizado via Airflow
+Integridade,% registros que passam em testes de qualidade,0.0,95.51,%,1662 inconsistências detectadas e tratadas automaticamente na camada silver
+Governança,Testes automatizados implementados,0,51,testes,Cenário B possui 51 testes dbt + lineage via ref() + documentação via schema.yml
+Eficiência operacional,Passos manuais por execução,4,0,passos,Cenário B com schedule diário automático — zero intervenção humana necessária

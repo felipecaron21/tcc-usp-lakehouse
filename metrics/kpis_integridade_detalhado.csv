@@ -1,0 +1,6 @@
+tabela,total_registros,registros_invalidos,percentual_invalidos,percentual_validos
+silver_customers,8000,369,4.61,95.39
+silver_orders,10000,331,3.31,96.69
+silver_products,3000,166,5.53,94.47
+silver_sellers,1000,30,3.0,97.0
+silver_order_items,15000,766,5.11,94.89

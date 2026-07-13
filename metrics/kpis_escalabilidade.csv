@@ -1,0 +1,4 @@
+volume_pedidos,tempo_cenario_a_segundos,tempo_cenario_b_segundos,diferenca_segundos
+10000,0.35,3.01,2.66
+50000,0.3,1.99,1.69
+100000,0.3,1.95,1.65
