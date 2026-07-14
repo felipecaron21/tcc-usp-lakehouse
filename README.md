@@ -20,7 +20,6 @@ Projeto de TCC do MBA em Data Science & Analytics (USP/Esalq) que avalia, de for
 - [Como executar](#como-executar)
 - [Decisões técnicas](#decisões-técnicas)
 - [Resultados](#resultados)
-- [Trabalhos futuros](#trabalhos-futuros)
 
 ---
 
