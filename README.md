@@ -236,18 +236,7 @@ Síntese comparativa entre os cenários nos cinco indicadores avaliados:
 
 ---
 
-## Trabalhos futuros
-
-- Implementação de **carga incremental** em substituição ao full load.
-- Migração do armazenamento para **object storage** em nuvem (S3 / GCS).
-- Avaliação da arquitetura sobre **dados reais** e volumes superiores.
-- Ampliação da camada de testes e monitoramento de qualidade em produção.
-
----
-
 ## Autor
 
 **Felipe Caron de Almeida Prado**
 MBA em Data Science & Analytics — USP/Esalq
-
-Orientador: Prof. Dr. Elias Soares De Figueiredo
