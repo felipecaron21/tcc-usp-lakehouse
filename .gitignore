@@ -3,3 +3,13 @@ metabase/metabase-data/
 metabase/plugins/instance_analytics/
 metabase/plugins/sample-database.db.mv.db
 metabase/plugins/duckdb.metabase-driver.jar
+# Ambiente Docker
+.env
+
+# Artefatos gerados
+*.db
+metabase/plugins/
+logs/
+dbt_project/logs/
+dbt_project/**/target/
+**/__pycache__/
