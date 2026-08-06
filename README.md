@@ -106,6 +106,8 @@ tcc-usp-lakehouse/
 │   └── docker-compose.yml
 ├── metrics/                 # Coleta de KPIs
 │   └── coletar_kpis.py
+├── docker-compose.yaml      # Ambiente do Airflow
+├── .env.example             # Referência de variáveis de ambiente
 └── README.md
 ```
 
@@ -115,16 +117,25 @@ tcc-usp-lakehouse/
 
 ### Pré-requisitos
 
-- Python 3.13 (recomendado ambiente conda dedicado)
 - Docker e Docker Compose
-- dbt-duckdb
+- Python 3.13 (opcional — necessário apenas para rodar o gerador de dados, o Cenário A e a coleta de KPIs fora do container)
 
-### 1. Clonar o repositório
+### 1. Clonar o repositório e configurar o ambiente
 
 ```bash
 git clone https://github.com/felipecaron21/tcc-usp-lakehouse.git
 cd tcc-usp-lakehouse
+
+cp .env.example .env
 ```
+
+Gere a chave de criptografia do Airflow e preencha o campo `FERNET_KEY` no `.env`:
+
+```bash
+python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+```
+
+O arquivo `.env` não é versionado. Use o `.env.example` como referência das variáveis esperadas.
 
 ### 2. Gerar os dados (camada bronze)
 
@@ -138,17 +149,31 @@ python generator/generator_data.py
 python before/analise_manual.py
 ```
 
-### 4. Executar o Cenário B (pipeline dbt)
+### 4. Subir a orquestração (Airflow)
+
+```bash
+docker compose up -d
+```
+
+Acesse `http://localhost:8080` e faça login com as credenciais definidas no `.env` (por padrão, `airflow` / `airflow`). Acione a `dag_transformacao`: a rotina executa silver, gold e os testes em sequência, com agendamento diário.
+
+O repositório é montado em `/opt/tcc` dentro dos containers, e é esse caminho que os DAGs usam para localizar o projeto dbt e os dados.
+
+Para encerrar o ambiente preservando o histórico de execuções:
+
+```bash
+docker compose down
+```
+
+### 5. Executar o dbt localmente (alternativa ao Airflow)
+
+Este passo é opcional e destina-se a quem prefere rodar as transformações sem Docker. Requer `dbt-duckdb` instalado e um profile configurado em `~/.dbt`.
 
 ```bash
 cd dbt_project/lakehouse
 dbt run --profiles-dir ~/.dbt
 dbt test --profiles-dir ~/.dbt
 ```
-
-### 5. Subir a orquestração (Airflow)
-
-Suba a instância do Airflow via Docker e acione a `dag_transformacao`. A rotina executa silver, gold e os testes em sequência, com agendamento diário.
 
 ### 6. Subir o BI (Metabase)
 
@@ -193,9 +218,13 @@ Os caminhos dos arquivos são parametrizados via variável `data_path`. Isso per
 
 A imagem padrão do Metabase é baseada em Alpine Linux, **incompatível com o driver DuckDB** por questões de *glibc*. A solução foi construir uma **imagem Debian customizada** via Dockerfile, garantindo a compatibilidade do driver e a conexão estável com o Lakehouse.
 
-### 6. Instâncias Docker isoladas por projeto
+### 6. Ambiente versionado e reprodutível, com instâncias isoladas por serviço
 
-Airflow e Metabase rodam em **instâncias Docker próprias e isoladas**, com seus respectivos `docker-compose.yml`. Isso segue a boa prática de manter cada projeto com ambiente independente, evitando conflitos de configuração, volumes e portas entre projetos distintos.
+Airflow e Metabase rodam em **instâncias Docker próprias e isoladas**, com seus respectivos arquivos de composição. Isso evita conflitos de configuração, volumes e portas entre serviços com ciclos de vida distintos.
+
+Ambos os arquivos são **versionados no repositório e usam caminhos relativos**, de modo que o ambiente seja reproduzível em qualquer máquina: basta clonar o repositório e subir os containers. Credenciais e configurações sensíveis ficam fora do versionamento, em `.env`, com `.env.example` servindo de referência das variáveis esperadas.
+
+O repositório é montado em `/opt/tcc` dentro dos containers do Airflow, permitindo que os DAGs acessem o projeto dbt e os arquivos de dados por um caminho estável, independente de onde o repositório esteja clonado na máquina hospedeira.
 
 ### 7. Script Python instrumentado como processo manual
 
