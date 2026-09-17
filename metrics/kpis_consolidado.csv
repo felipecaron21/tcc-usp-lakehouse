@@ -1,8 +1,8 @@
 indicador,dimensao,cenario_a,cenario_b,unidade,observacao
-Velocidade,"Tempo de processamento (s), média de 10 rodagens em 10k",0.3096,5.6253,segundos,"A: dp=0.0138, min=0.2933, max=0.3427, mediana=0.3045 | B: dp=0.3664, min=5.3279, max=6.3531, mediana=5.446 | B inclui dbt run (silver+gold) e dbt test"
+Velocidade,"Tempo de processamento (s), média de 10 rodagens em 10k",0.3033,5.421,segundos,"A: dp=0.0369, min=0.2877, max=0.408, mediana=0.2915 | B: dp=0.2056, min=5.225, max=5.8899, mediana=5.4249 | B inclui dbt run (silver+gold) e dbt test"
 Integridade,% de registros válidos após processamento,0.0,95.51,%,1662 inconsistências detectadas e tratadas em 37000 registros; Cenário A não detecta inconsistências
 Governança,Testes automatizados implementados,0.0,51.0,testes,"Cenário B: 51 testes dbt (not_null, unique, accepted_values) + lineage via ref() + documentação via schema.yml"
 Eficiência operacional,Etapas manuais por execução,4.0,0.0,etapas,"A: carregar, cruzar, analisar, compilar | B: orquestração agendada, sem intervenção manual"
-Escalabilidade,"Tempo médio (s) em 10000 pedidos, 10 rodagens",0.3005,5.5983,segundos,A: dp=0.0184 | B: dp=0.3303
-Escalabilidade,"Tempo médio (s) em 50000 pedidos, 10 rodagens",0.3695,5.7257,segundos,A: dp=0.0378 | B: dp=0.3063
-Escalabilidade,"Tempo médio (s) em 100000 pedidos, 10 rodagens",0.4526,6.0244,segundos,A: dp=0.0396 | B: dp=0.1166
+Escalabilidade,"Tempo médio (s) em 10000 pedidos, 10 rodagens",0.2885,5.3042,segundos,A: dp=0.0048 | B: dp=0.1346
+Escalabilidade,"Tempo médio (s) em 50000 pedidos, 10 rodagens",0.3372,5.414,segundos,A: dp=0.003 | B: dp=0.0576
+Escalabilidade,"Tempo médio (s) em 100000 pedidos, 10 rodagens",0.3965,5.7315,segundos,A: dp=0.0031 | B: dp=0.0522
