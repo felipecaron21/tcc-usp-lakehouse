@@ -14,3 +14,7 @@ dbt_project/logs/
 dbt_project/**/target/
 **/__pycache__/
 config/
+
+data/bronze/*.parquet
+data/silver/*.parquet
+data/gold/*.parquet
