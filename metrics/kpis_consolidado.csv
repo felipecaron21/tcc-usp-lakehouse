@@ -1,8 +1,11 @@
 indicador,dimensao,cenario_a,cenario_b,unidade,observacao
-Velocidade,"Tempo de processamento (s), média de 10 rodagens em 10k",0.3033,5.421,segundos,"A: dp=0.0369, min=0.2877, max=0.408, mediana=0.2915 | B: dp=0.2056, min=5.225, max=5.8899, mediana=5.4249 | B inclui dbt run (silver+gold) e dbt test"
+Velocidade,"Tempo de processamento (s), média de 10 rodagens em 10k",0.2994,5.4358,segundos,"A: dp=0.0189, min=0.2888, max=0.3519, mediana=0.293 | B: dp=0.4327, min=5.1885, max=6.6538, mediana=5.3061 | B inclui dbt run (silver+gold) e dbt test"
 Integridade,% de registros válidos após processamento,0.0,95.51,%,1662 inconsistências detectadas e tratadas em 37000 registros; Cenário A não detecta inconsistências
 Governança,Testes automatizados implementados,0.0,51.0,testes,"Cenário B: 51 testes dbt (not_null, unique, accepted_values) + lineage via ref() + documentação via schema.yml"
 Eficiência operacional,Etapas manuais por execução,4.0,0.0,etapas,"A: carregar, cruzar, analisar, compilar | B: orquestração agendada, sem intervenção manual"
-Escalabilidade,"Tempo médio (s) em 10000 pedidos, 10 rodagens",0.2885,5.3042,segundos,A: dp=0.0048 | B: dp=0.1346
-Escalabilidade,"Tempo médio (s) em 50000 pedidos, 10 rodagens",0.3372,5.414,segundos,A: dp=0.003 | B: dp=0.0576
-Escalabilidade,"Tempo médio (s) em 100000 pedidos, 10 rodagens",0.3965,5.7315,segundos,A: dp=0.0031 | B: dp=0.0522
+Escalabilidade,"Tempo médio (s) em 10000 pedidos, 10 rodagens",0.2956,5.2894,segundos,A: dp=0.0066 | B: dp=0.0575
+Escalabilidade,"Tempo médio (s) em 50000 pedidos, 10 rodagens",0.342,5.4901,segundos,A: dp=0.0029 | B: dp=0.0555
+Escalabilidade,"Tempo médio (s) em 100000 pedidos, 10 rodagens",0.4072,5.7899,segundos,A: dp=0.0047 | B: dp=0.0606
+Escalabilidade,"Tempo médio (s) em 500000 pedidos, 10 rodagens",1.0312,8.0315,segundos,A: dp=0.0542 | B: dp=0.1463
+Escalabilidade,"Tempo médio (s) em 1000000 pedidos, 10 rodagens",1.885,10.2579,segundos,A: dp=0.053 | B: dp=0.437
+Escalabilidade,"Tempo médio (s) em 5000000 pedidos, 10 rodagens",12.4128,28.5127,segundos,A: dp=0.4827 | B: dp=1.3654

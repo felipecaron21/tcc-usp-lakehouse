@@ -1,0 +1,143 @@
+Início da coleta de KPIs com múltiplas rodagens.
+Isso pode levar vários minutos, especialmente na escalabilidade.
+
+
+=== 1. Tempos principais (10 rodagens, volume 10k) ===
+Regenerando base padrão (10k) antes de iniciar...
+  Rodada  1: A=0.3519s | B=6.6538s
+  Rodada  2: A=0.3016s | B=5.4193s
+  Rodada  3: A=0.2958s | B=5.1885s
+  Rodada  4: A=0.2915s | B=5.3599s
+  Rodada  5: A=0.2910s | B=5.2583s
+  Rodada  6: A=0.2897s | B=5.2940s
+  Rodada  7: A=0.2888s | B=5.2470s
+  Rodada  8: A=0.2944s | B=5.3182s
+  Rodada  9: A=0.2978s | B=5.2813s
+  Rodada 10: A=0.2913s | B=5.3372s
+
+Resumo dos tempos:
+          cenario  media  desvio_padrao  minimo  maximo  mediana
+       A (manual) 0.2994         0.0189  0.2888  0.3519   0.2930
+B (transformacao) 5.4358         0.4327  5.1885  6.6538   5.3061
+
+=== 2. Escalabilidade (10 rodagens por volume) ===
+
+  Volume: 10000 pedidos
+    Rodada  1: A=0.3005s | B=5.3036s
+    Rodada  2: A=0.2937s | B=5.3015s
+    Rodada  3: A=0.2914s | B=5.2017s
+    Rodada  4: A=0.2952s | B=5.2887s
+    Rodada  5: A=0.3126s | B=5.2331s
+    Rodada  6: A=0.2938s | B=5.2701s
+    Rodada  7: A=0.2927s | B=5.3062s
+    Rodada  8: A=0.2911s | B=5.2805s
+    Rodada  9: A=0.2908s | B=5.4227s
+    Rodada 10: A=0.2939s | B=5.2861s
+
+  Volume: 50000 pedidos
+    Rodada  1: A=0.3460s | B=5.5825s
+    Rodada  2: A=0.3393s | B=5.4436s
+    Rodada  3: A=0.3377s | B=5.4963s
+    Rodada  4: A=0.3434s | B=5.4578s
+    Rodada  5: A=0.3438s | B=5.4430s
+    Rodada  6: A=0.3404s | B=5.4632s
+    Rodada  7: A=0.3415s | B=5.5862s
+    Rodada  8: A=0.3467s | B=5.4312s
+    Rodada  9: A=0.3402s | B=5.4908s
+    Rodada 10: A=0.3412s | B=5.5061s
+
+  Volume: 100000 pedidos
+    Rodada  1: A=0.4179s | B=5.7275s
+    Rodada  2: A=0.4087s | B=5.8075s
+    Rodada  3: A=0.4064s | B=5.8117s
+    Rodada  4: A=0.4029s | B=5.8055s
+    Rodada  5: A=0.4043s | B=5.8146s
+    Rodada  6: A=0.4082s | B=5.7760s
+    Rodada  7: A=0.4099s | B=5.7302s
+    Rodada  8: A=0.4016s | B=5.7685s
+    Rodada  9: A=0.4035s | B=5.7278s
+    Rodada 10: A=0.4086s | B=5.9294s
+
+  Volume: 500000 pedidos
+    Rodada  1: A=1.1813s | B=8.3237s
+    Rodada  2: A=1.0115s | B=7.9703s
+    Rodada  3: A=1.0073s | B=7.9373s
+    Rodada  4: A=1.0154s | B=8.0136s
+    Rodada  5: A=1.0377s | B=8.0623s
+    Rodada  6: A=1.0151s | B=8.1783s
+    Rodada  7: A=1.0168s | B=8.0104s
+    Rodada  8: A=1.0291s | B=8.0851s
+    Rodada  9: A=0.9912s | B=7.9526s
+    Rodada 10: A=1.0063s | B=7.7817s
+
+  Volume: 1000000 pedidos
+    Rodada  1: A=2.0170s | B=10.0991s
+    Rodada  2: A=1.8649s | B=10.1513s
+    Rodada  3: A=1.8857s | B=10.1362s
+    Rodada  4: A=1.9341s | B=10.0712s
+    Rodada  5: A=1.8566s | B=9.7238s
+    Rodada  6: A=1.8407s | B=9.7708s
+    Rodada  7: A=1.8498s | B=10.1093s
+    Rodada  8: A=1.8648s | B=10.8183s
+    Rodada  9: A=1.8734s | B=10.6576s
+    Rodada 10: A=1.8630s | B=11.0416s
+
+  Volume: 5000000 pedidos
+    Rodada  1: A=11.9998s | B=26.5525s
+    Rodada  2: A=11.9907s | B=26.2037s
+    Rodada  3: A=12.1229s | B=27.6780s
+    Rodada  4: A=12.2229s | B=28.2736s
+    Rodada  5: A=12.4090s | B=28.9428s
+    Rodada  6: A=12.5404s | B=29.9153s
+    Rodada  7: A=12.3334s | B=29.1535s
+    Rodada  8: A=13.6741s | B=30.4763s
+    Rodada  9: A=12.5029s | B=28.8619s
+    Rodada 10: A=12.3315s | B=29.0690s
+
+Resumo da escalabilidade:
+ volume cenario   media  desvio_padrao  minimo  maximo  mediana
+  10000       A  0.2956         0.0066  0.2908  0.3126   0.2938
+  10000       B  5.2894         0.0575  5.2017  5.4227   5.2874
+  50000       A  0.3420         0.0029  0.3377  0.3467   0.3414
+  50000       B  5.4901         0.0555  5.4312  5.5862   5.4770
+ 100000       A  0.4072         0.0047  0.4016  0.4179   0.4073
+ 100000       B  5.7899         0.0606  5.7275  5.9294   5.7908
+ 500000       A  1.0312         0.0542  0.9912  1.1813   1.0152
+ 500000       B  8.0315         0.1463  7.7817  8.3237   8.0120
+1000000       A  1.8850         0.0530  1.8407  2.0170   1.8648
+1000000       B 10.2579         0.4370  9.7238 11.0416  10.1228
+5000000       A 12.4128         0.4827 11.9907 13.6741  12.3324
+5000000       B 28.5127         1.3654 26.2037 30.4763  28.9024
+
+=== 3. Integridade (coleta única, base 10k) ===
+Restaurando base padrão (10k) e rodando pipeline...
+  silver_customers: 8000 registros, 369 inconsistências
+  silver_orders: 10000 registros, 331 inconsistências
+  silver_products: 3000 registros, 166 inconsistências
+  silver_sellers: 1000 registros, 30 inconsistências
+  silver_order_items: 15000 registros, 766 inconsistências
+
+  TOTAL: 37000 registros, 1662 inconsistências (95.51% válidos)
+
+=== 4. Consolidando todos os KPIs ===
+Consolidado salvo em: kpis_consolidado.csv
+             indicador                                                dimensao  cenario_a  cenario_b  unidade                                                                                                                                             observacao
+            Velocidade Tempo de processamento (s), média de 10 rodagens em 10k     0.2994     5.4358 segundos A: dp=0.0189, min=0.2888, max=0.3519, mediana=0.293 | B: dp=0.4327, min=5.1885, max=6.6538, mediana=5.3061 | B inclui dbt run (silver+gold) e dbt test
+           Integridade               % de registros válidos após processamento     0.0000    95.5100        %                                                   1662 inconsistências detectadas e tratadas em 37000 registros; Cenário A não detecta inconsistências
+            Governança                      Testes automatizados implementados     0.0000    51.0000   testes                                         Cenário B: 51 testes dbt (not_null, unique, accepted_values) + lineage via ref() + documentação via schema.yml
+Eficiência operacional                             Etapas manuais por execução     4.0000     0.0000   etapas                                                             A: carregar, cruzar, analisar, compilar | B: orquestração agendada, sem intervenção manual
+        Escalabilidade           Tempo médio (s) em 10000 pedidos, 10 rodagens     0.2956     5.2894 segundos                                                                                                                            A: dp=0.0066 | B: dp=0.0575
+        Escalabilidade           Tempo médio (s) em 50000 pedidos, 10 rodagens     0.3420     5.4901 segundos                                                                                                                            A: dp=0.0029 | B: dp=0.0555
+        Escalabilidade          Tempo médio (s) em 100000 pedidos, 10 rodagens     0.4072     5.7899 segundos                                                                                                                            A: dp=0.0047 | B: dp=0.0606
+        Escalabilidade          Tempo médio (s) em 500000 pedidos, 10 rodagens     1.0312     8.0315 segundos                                                                                                                            A: dp=0.0542 | B: dp=0.1463
+        Escalabilidade         Tempo médio (s) em 1000000 pedidos, 10 rodagens     1.8850    10.2579 segundos                                                                                                                              A: dp=0.053 | B: dp=0.437
+        Escalabilidade         Tempo médio (s) em 5000000 pedidos, 10 rodagens    12.4128    28.5127 segundos                                                                                                                            A: dp=0.4827 | B: dp=1.3654
+
+=== Coleta concluída ===
+Arquivos gerados em metrics/:
+  tempos_bruto.csv / tempos_resumo.csv
+  escalabilidade_bruto.csv / escalabilidade_resumo.csv
+  integridade.csv
+  kpis_consolidado.csv  (base consultiva com todos os KPIs)
+
+A base foi restaurada no volume padrão (10.000 pedidos).
