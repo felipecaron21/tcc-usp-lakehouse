@@ -31,7 +31,7 @@ CENARIO_A = f"{BASE_PATH}/before/analise_manual.py"
 VARS = f'{{"data_path": "{DATA_PATH}"}}'
 N_RODADAS = 10
 VOLUME_PADRAO = 10000
-VOLUMES_ESCALA = [10000, 50000, 100000]
+VOLUMES_ESCALA = [10000, 50000, 100000, 500000, 1000000]
 
 os.makedirs(METRICS_PATH, exist_ok=True)
 
